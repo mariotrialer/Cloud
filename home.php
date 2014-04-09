@@ -8,6 +8,9 @@
 		header('Location: login.php');
 	}
 
+  include "backend/filelist.php";
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +31,14 @@
     <!-- Custom styles for this template -->
     <link href="css/home.css" rel="stylesheet">
 
+    <script type="text/JavaScript" src="js/underscore-min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/bootstrap.min.js"></script>
 
     <script type="text/JavaScript" src="js/modal.js"></script>
+    <script type="text/javascript" src="js/mainView.js"></script>
+
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -58,7 +65,7 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#contact" onclick="$('#myModal').modal('show');">Datei hochladen</a></li>
+            <li><a href="#contact" onclick="showUploadDialog();">Datei hochladen</a></li>
           </ul>
           <form class="logoutForm" method="post" action="backend/logout.php" id="logoutForm">
           	<input class="btn btn-default btn-danger" type="submit" value="Logout">
@@ -74,14 +81,12 @@
           <thead>
             <th>Index</th>
             <th>Name</th>
+            <th>Dateityp</th>
+            <th>Größe</th>
             <th>Aktionen</th>
           </thead>
           <tbody>
-            <tr>
-             <td>Hello</td>
-             <td>this is</td>
-             <td>Sparta</td>
-            </tr>
+            <?php getAllFiles(); ?>
           </tbody>
         </table>
       </div>
@@ -91,17 +96,20 @@
     <!-- Popup-->
     <div id="myModal" class="modal fade" >
         <div class="modal-dialog">
+          <form action="backend/upload.php" method="post" enctype="multipart/form-data"> 
           <div class="modal-content">
             <!-- dialog body -->
             <div class="modal-body">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <div id="contentOfDialog">
-
-              </div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2  class="uploadLine">Datei hochladen</h2>
+                <div id="contentOfDialog">
+                    <input type="file" name="datei"><br>
+                </div>
             </div>
             <!-- dialog buttons -->
-            <div class="modal-footer" id='modal-footer'><button id="dialogOk" type="button" onclick="closeDialog();" class="btn btn-primary" >OK</button></div>
+            <div class="modal-footer" id='modal-footer'><button id="dialogOk" type="submit" onclick="closeDialog();" class="btn btn-primary" >Hochladen</button></div>
           </div>
+          </form>
         </div>
     </div>
 

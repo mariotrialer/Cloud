@@ -21,3 +21,15 @@ body {
 .mainTable td{
 	text-align: left;
 }
+
+.upload{
+	margin-top: 10px;
+}
+
+#contentOfDialog{
+	padding-top: 10px;
+}
+
+.uploadLine{
+	margin-bottom: 10px;
+}
