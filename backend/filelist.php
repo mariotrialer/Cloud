@@ -11,8 +11,8 @@
 		        	$filesize = filesize('upload/'.$entry)/1000;
 		        	$filesize = $filesize." KB";
 
-		        	$downloadButton = "<button class='btn btn-default btn-success' onclick='downloadFile(null)'>Download</button>";
-		        	$deleteButton = "<button style='margin-left: 5px;' class='btn btn-default btn-warning' onclick='deleteFile(null);'>Löschen</button>";
+		        	$downloadButton = "<button data-filename='".$entry."' class='btn btn-default btn-success' onclick='downloadFile(this)'>Download</button>";
+		        	$deleteButton = "<button data-filename='".$entry."' style='margin-left: 5px;' class='btn btn-default btn-warning' onclick='deleteFile(this);'>Löschen</button>";
 
 		        	$ext = strtolower(pathinfo('upload/'.$entry, PATHINFO_EXTENSION));
 

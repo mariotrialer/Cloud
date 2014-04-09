@@ -30,15 +30,24 @@ function getFileName(id){
 
 }
 
-function downloadFile(id){
-	alert(id);
-	alert("downloaded");
+function downloadFile(button){
+
+	var filename = button.dataset["filename"];
+
+	location.href = "upload/" + filename;
+
 }
 
-function deleteFile(id){
+function deleteFile(button){
 
 	if(confirm("Wollen sie die Datei wirklich löschen?")){
-		alert("gelöscht");	
+		var filename = button.dataset["filename"];
+
+		var url = "backend/deletefile.php?filename="+filename;
+
+		location.href = url;
+
+		alert(filename);	
 	}else{
 
 	}
