@@ -20,13 +20,18 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Cloud</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/home.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/JavaScript" src="js/modal.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -49,13 +54,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">MWE-Cloud</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" onclick="$('#myModal').modal('show');">Datei hochladen</a></li>
           </ul>
           <form class="logoutForm" method="post" action="backend/logout.php" id="logoutForm">
           	<input class="btn btn-default btn-danger" type="submit" value="Logout">
@@ -67,17 +70,40 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <table class="table table-hover mainTable">
+          <thead>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Aktionen</th>
+          </thead>
+          <tbody>
+            <tr>
+             <td>Hello</td>
+             <td>this is</td>
+             <td>Sparta</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
     </div><!-- /.container -->
 
+    <!-- Popup-->
+    <div id="myModal" class="modal fade" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- dialog body -->
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <div id="contentOfDialog">
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="bootstrap/bootstrap.min.js"></script>
+              </div>
+            </div>
+            <!-- dialog buttons -->
+            <div class="modal-footer" id='modal-footer'><button id="dialogOk" type="button" onclick="closeDialog();" class="btn btn-primary" >OK</button></div>
+          </div>
+        </div>
+    </div>
+
   </body>
 </html>

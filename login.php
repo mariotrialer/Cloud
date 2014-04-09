@@ -31,13 +31,13 @@
     <div class="container">
 
       <form class="form-signin" method="post" action="backend/loginvalidator.php" role="form">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Authentifizierung</h2>
         <input type="email" class="form-control" placeholder="Email address" name="email" required autofocus>
         <input type="password" class="form-control" placeholder="Password" name="password" required>
         <label class="checkbox">
           
         </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Einloggen</button>
       </form>
 
     </div>
