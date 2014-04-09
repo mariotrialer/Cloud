@@ -77,6 +77,18 @@
     <div class="container">
 
       <div class="starter-template">
+        <div id="infoDiv">
+          <h3 id="nameLine">Sie sind angemeldet als: <?php echo($_SESSION['fullname']); ?></h3>
+          <table id="infoTable">
+            <tr>
+              <td class="labelCell">Anzahl Dateien</td>
+              <td class="valueCell"><?php getFileCount(); ?></td>
+              <td class="labelCell">Belegter Speicher</td>
+              <td class="valueCell"><?php getStorageUsage(); ?></td>
+            </tr>
+          </table>
+        </div>
+
         <table class="table table-hover mainTable">
           <thead>
             <th>Index</th>

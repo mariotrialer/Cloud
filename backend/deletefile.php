@@ -1,6 +1,9 @@
 <?php
 
 	$filename = $_GET["filename"];
+	$fileUrl = "../upload/".$filename;
 
-	echo $filename;
+	unlink($fileUrl);
+	
+	header('Location: ../home.php');
 ?>
